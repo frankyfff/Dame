@@ -91,6 +91,8 @@ public class Brett extends JFrame {
 	}
 	
 	private class FeldListener implements ActionListener {
+	
+		
 		
 		public void actionPerformed(ActionEvent evt) {
 			for (int z = 0; z < feld.length; z++) {
