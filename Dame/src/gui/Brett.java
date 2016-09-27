@@ -75,7 +75,11 @@ public class Brett extends JFrame {
 		istZugbeginn = false;
 	}
 	
-	public void merkeEnde() {
+	public void merkeEnde(Stein stein) {
+		
+		if (stein.getClass().getCanonicalName().equals("root.Einfach")) {
+			amZug = stein.getSchwarz() ? amZugWEISS : amZugSCHWARZ;
+		} 
 		istZugbeginn = true;
 	}
 	
