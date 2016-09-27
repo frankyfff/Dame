@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 
@@ -19,12 +20,22 @@ public class Brett extends JFrame {
 		
 		getContentPane().removeAll();
 		
+		boolean schwarz = true;
 		for (int z = 0; z < feld.length; z++) {
 			for (int sp = 0; sp < feld[z].length; sp++) {
-				Feld f = new Feld(this);
+				Feld f = new Feld(this, schwarz);
 				feld[z][sp] = f;
+				
+				if (schwarz) {
+					f.setBackground(Color.darkGray);		//f.setBackground(schwarz ? Color.darkGray : Color.lightGray)
+				} else {
+					f.setBackground(Color.lightGray);
+				}
+				
 				jPanel1.add(f);
+				schwarz = !schwarz;
 			}
+			schwarz = !schwarz;
 		}
 		
 		getContentPane().add(jPanel1, BorderLayout.CENTER);
