@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import root.*;
+
 public class Brett extends JFrame {
 
 	private JPanel jPanel1;
@@ -30,6 +32,18 @@ public class Brett extends JFrame {
 					f.setBackground(Color.darkGray);		//f.setBackground(schwarz ? Color.darkGray : Color.lightGray)
 				} else {
 					f.setBackground(Color.lightGray);
+				}
+				
+				if (schwarz) {
+					if (z <= 3) {
+						f.setStein(new Einfach(f,false));
+						f.setForeground(Color.white);
+						f.setText("O");
+					} else if (z >= 6) {
+						f.setStein(new Einfach(f, true));
+						f.setForeground(Color.black);
+						f.setText("O");
+					}
 				}
 				
 				jPanel1.add(f);
