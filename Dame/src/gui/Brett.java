@@ -28,7 +28,7 @@ public class Brett extends JFrame {
 		boolean schwarz = true;
 		for (int z = 0; z < feld.length; z++) {
 			for (int sp = 0; sp < feld[z].length; sp++) {
-				Feld f = new Feld(this, schwarz);
+				Feld f = new Feld(this, schwarz, z, sp);
 				
 				feld[z][sp] = f;
 				
@@ -116,8 +116,10 @@ public class Brett extends JFrame {
 			if (getZugbeginn()) {
 				st = f.getStein();
 				f.wegStein();
-			} else {
+			} else if(st.istOk(f)) {
 				f.setStein(st);
+			} else {
+				st.getFeld().setStein(st);
 			}
 			
 		}

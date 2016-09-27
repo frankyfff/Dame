@@ -12,10 +12,22 @@ public class Feld extends JButton  {
 	private Brett brett;
 	private Stein stein = null;
 	private boolean istSchwarz;
+	private int zeile;
+	private int spalte;
 	
-	public Feld(Brett brett, boolean schwarz) {
+	public Feld(Brett brett, boolean schwarz, int zeile, int spalte) {
 		this.brett = brett;
 		istSchwarz = schwarz;
+		this.zeile = zeile;
+		this.spalte = spalte;
+	}
+	
+	public int getZeile() {
+		return zeile;
+	}
+	
+	public int getSpalte() {
+		return spalte;
 	}
 	
 	public void setStein(Stein stein) {
