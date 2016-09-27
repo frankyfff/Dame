@@ -18,6 +18,7 @@ public class Brett extends JFrame {
 	private JPanel jPanel1;
 	private Feld[][] feld = new Feld[10][10];
 	private JButton jButton;
+	private boolean istZugbeginn = true;
 	
 	public Brett() {
 		initComponents();
@@ -42,12 +43,8 @@ public class Brett extends JFrame {
 				if (schwarz) {
 					if (z <= 3) {
 						f.setStein(new Einfach(f,false));
-						f.setForeground(Color.white);
-						f.setText("O");
 					} else if (z >= 6) {
 						f.setStein(new Einfach(f, true));
-						f.setForeground(Color.black);
-						f.setText("O");
 					}
 				}
 				
@@ -60,6 +57,19 @@ public class Brett extends JFrame {
 		getContentPane().add(jPanel1, BorderLayout.CENTER);
 		pack();
 	}
+	
+	private boolean getZugbeginn() {
+		return istZugbeginn;
+	}
+	
+	public void merkeBeginn() {
+		istZugbeginn = false;
+	}
+	
+	public void merkeEnde() {
+		istZugbeginn = true;
+	}
+	
 	
 	private void initComponents() {
 		
@@ -89,14 +99,25 @@ public class Brett extends JFrame {
 	
 	private class FeldListener implements ActionListener {
 
+		Stein st = null;
 		public void actionPerformed(ActionEvent evt) {
 			
+			Feld f = null;
 			for (int z = 0; z < feld.length; z++) {
 				for (int sp = 0; sp < feld[z].length; sp++) {
 					if (evt.getSource() == feld[z][sp]) {
 						System.out.println("Feld: " + z + " Spalte: " + sp);
+						f = feld[z][sp];
+						break;
 					}
 				}
+			}
+			
+			if (getZugbeginn()) {
+				st = f.getStein();
+				f.wegStein();
+			} else {
+				f.setStein(st);
 			}
 			
 		}

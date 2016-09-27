@@ -11,4 +11,13 @@ public abstract class Stein {
 		this.feld = feld;
 		istSchwarz = schwarz;
 	}
+	
+	public void setFeld(Feld feld) {
+		this.feld = feld;
+		feld.getBrett().merkeEnde();
+	}
+	
+	public boolean getSchwarz() {
+		return istSchwarz;
+	}
 }
