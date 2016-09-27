@@ -16,18 +16,28 @@ public class Brett extends JFrame {
 	
 	public Brett() {
 		initComponents();
+		
+		getContentPane().removeAll();
+		
+		for (int z = 0; z < feld.length; z++) {
+			for (int sp = 0; sp < feld[z].length; sp++) {
+				Feld f = new Feld(this);
+				feld[z][sp] = f;
+				jPanel1.add(f);
+			}
+		}
+		
+		getContentPane().add(jPanel1, BorderLayout.CENTER);
+		pack();
 	}
 	
 	private void initComponents() {
 		
 		jPanel1 = new JPanel();
-		jButton = new JButton();
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		jPanel1.setLayout(new GridLayout(10,10));
-		jButton.setText("BBB");
-		jPanel1.add(jButton);
 		
 		getContentPane().add(jPanel1, BorderLayout.CENTER);
 		
