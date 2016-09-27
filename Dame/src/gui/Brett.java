@@ -20,6 +20,15 @@ public class Brett extends JFrame {
 	private JButton jButton;
 	private boolean istZugbeginn = true;
 	
+	/*
+	 * weiﬂ 1:		00000001 
+	 * schwarz 2:	00000010
+	 * beide 3:		00000011
+	 * */
+	private final int amZugWEISS = 1;
+	private final int amZugSCHWARZ = 2;
+	private int amZug = amZugWEISS;
+	
 	public Brett() {
 		initComponents();
 		
@@ -115,6 +124,9 @@ public class Brett extends JFrame {
 			
 			if (getZugbeginn()) {
 				st = f.getStein();
+				if (st.getSchwarz() && ((amZug & amZugSCHWARZ) != 0) || !st.getSchwarz() && ((amZug & amZugWEISS) != 0)) {
+					f.wegStein();
+				}
 				f.wegStein();
 			} else if(st.istOk(f)) {
 				f.setStein(st);
