@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +28,10 @@ public class Brett extends JFrame {
 		for (int z = 0; z < feld.length; z++) {
 			for (int sp = 0; sp < feld[z].length; sp++) {
 				Feld f = new Feld(this, schwarz);
+				
 				feld[z][sp] = f;
+				
+				f.addActionListener(fl);
 				
 				if (schwarz) {
 					f.setBackground(Color.darkGray);		//f.setBackground(schwarz ? Color.darkGray : Color.lightGray)
@@ -81,4 +86,36 @@ public class Brett extends JFrame {
 			}
 		});
 	}
+	
+	private class FeldListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent evt) {
+			
+			for (int z = 0; z < feld.length; z++) {
+				for (int sp = 0; sp < feld[z].length; sp++) {
+					if (evt.getSource() == feld[z][sp]) {
+						System.out.println("Feld: " + z + " Spalte: " + sp);
+					}
+				}
+			}
+			
+		}
+		
+	}
+	
+	FeldListener fl = new FeldListener();
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
