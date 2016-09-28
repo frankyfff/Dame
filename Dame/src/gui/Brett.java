@@ -51,9 +51,9 @@ public class Brett extends JFrame {
 				
 				if (schwarz) {
 					if (z <= 3) {
-						f.setStein(new Einfach(f,false));
+						f.setStein(new Einfach(f,false), true);
 					} else if (z >= 6) {
-						f.setStein(new Einfach(f, true));
+						f.setStein(new Einfach(f, true), true);
 					}
 				}
 				
