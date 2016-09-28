@@ -105,10 +105,14 @@ public class Brett extends JFrame {
 			//Letztes Feld:
 				Feld fletzt = feld[y2 -dY1][x2 -dX1];
 				Stein stletzt = fletzt.getStein();
-				//Stein eigener Farbe
-				if (stletzt.getSchwarz() == stein.getSchwarz()) {
-					return false;
+				
+				if (stletzt != null) {
+					//Stein eigener Farbe
+					if (stletzt.getSchwarz() == stein.getSchwarz()) {
+						return false;
+					}
 				}
+			
 				//Einfacher Stein: leer
 				if (stein.getClass().getCanonicalName().equals("root.Einfach") && stletzt == null) {
 					return false;
