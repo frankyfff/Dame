@@ -83,6 +83,23 @@ public class Brett extends JFrame {
 		istZugbeginn = true;
 	}
 	
+	public boolean istOk(Stein stein, Feld ziel) {
+		
+		//Zielfeld besetzt
+		if (ziel.getStein() != null) {
+			return false;
+		}
+		
+		//Zug länger als 1 feld
+			//Letztes Feld:
+				//Stein eigener Farbe
+				//Einfacher Stein: leer
+			//Zug länger als 2
+				//Erstes bis VORletztes Feld:
+					//Feld besetzt
+		return true;
+	}
+	
 	
 	private void initComponents() {
 		
@@ -125,17 +142,19 @@ public class Brett extends JFrame {
 					}
 				}
 			}
-			
+			int amZugMem = amZug;
 			if (getZugbeginn()) {
-				st = f.getStein();
-				if (st.getSchwarz() && ((amZug & amZugSCHWARZ) != 0) || !st.getSchwarz() && ((amZug & amZugWEISS) != 0)) {
-					f.wegStein();
+				if ((st = f.getStein()) != null) {
+					if (st.getSchwarz() && ((amZug & amZugSCHWARZ) != 0) || !st.getSchwarz() && ((amZug & amZugWEISS) != 0)) {
+						f.wegStein();
+					}
 				}
 				f.wegStein();
-			} else if(st.istOk(f)) {
+			} else if(st.istOk(f) && istOk(st, f)) {
 				f.setStein(st);
 			} else {
 				st.getFeld().setStein(st);
+				amZug = amZugMem;
 			}
 			
 		}
