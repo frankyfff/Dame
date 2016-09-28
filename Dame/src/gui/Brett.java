@@ -91,12 +91,44 @@ public class Brett extends JFrame {
 		}
 		
 		//Zug länger als 1 feld
+		int x1 = stein.getFeld().getSpalte();
+		int y1 = stein.getFeld().getZeile();
+		int x2 = ziel.getSpalte();
+		int y2 = ziel.getZeile();
+		
+		int dX = x2 - x1;
+		int dY = y2 - y1;
+		
+		if (Math.abs(dX) > 1) {
+			int dX1 = dX > 0 ? 1 : -1;
+			int dY1 = dY > 0 ? 1 : -1;
 			//Letztes Feld:
+				Feld fletzt = feld[y2 -dY1][x2 -dX1];
+				Stein stletzt = fletzt.getStein();
 				//Stein eigener Farbe
+				if (stletzt.getSchwarz() == stein.getSchwarz()) {
+					return false;
+				}
 				//Einfacher Stein: leer
+				if (stein.getClass().getCanonicalName().equals("root.Einfach") && stletzt == null) {
+					return false;
+				}
 			//Zug länger als 2
+			if (Math.abs(dX) > 2) {
+				int z = y1 + dY1;
+				int sp = x1 + dX1;
 				//Erstes bis VORletztes Feld:
+				for (int i = 0; i < Math.abs(dX) -2; i++) {
 					//Feld besetzt
+					if (feld[z][sp].getStein() != null) {
+						return false;
+					}
+					z += dY1;
+					sp += dX1;
+				}
+			}
+			fletzt.wegStein();
+		}
 		return true;
 	}
 	
