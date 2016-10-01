@@ -10,7 +10,6 @@ public class OneDem {
 		od.init();
 	}
 
-
 	private void init() {
 		for (int i = 0; i < oneDemensionArrays.length; i++) {
 			System.out.println("index: "+ i);
