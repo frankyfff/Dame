@@ -5,16 +5,17 @@ public class TernaererOperator {
 	private boolean schalter;
 
 	public void showTernaerOperator() {
+		
 		if (schalter) {
-			System.out.println("ififififif");
 			setSchalter(false);
 		} else {
-			System.out.println("elseelseelse");
 			setSchalter(true);
-			System.out.println("hatesgelesen");
 		}
 		
+		String temp;
+		temp = getSchalter() ? "TRUE" : "FALSE";
 		
+		System.out.println(temp);
 	}
 
 	
@@ -33,6 +34,5 @@ public class TernaererOperator {
 		to.showTernaerOperator();
 		to.showTernaerOperator();
 		
-		getSchalter() ? System.out.println("A") : System.out.println("B");
 	}
 }
