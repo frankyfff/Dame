@@ -1,0 +1,42 @@
+Computerspeicher speichert beliebige Bitmuster. Damit diese Muster einen Sinn bekommen, müssen Datentypen verwendet werden.
+
+			Themen:
+				-Datentypen
+				-Primitive Daten im Vergleich zu Objekten
+				-Die acht primitiven Datentypen von Java
+				-Numerische Datentypen
+				-Alphanumerische und Boole'sche Datentypen
+				
+FRAGE 1:
+Einmal angenommen Sie finden den folgenden Papierfetzen. Was könnte er bedeuten?	[MIX]
+Antwort:
+Nicht leicht zu sagen, ohne mehr darüber zu wissen.
+
+Datentypen
+Sie würden gerne den Rest des Papiers sehen wollen oder wissen wollen woher es kommt. 
+Ohne den Kontext zu kennen ist es schwer zu sagen was "MIX" bedeutet. 
+Es könnte 1009 in Römischen Ziffern sein oder es könnte das englische Wort "mix" 
+sein (welches selbst wieder mehrere Bedeutungen hat) oder es könnte der Nachname des bekannten Schauspielers 
+Tom Mix (1880 - 1940) sein. Es könnte Teil eines CD Labels sein: 
+"MTV Dance MIX" oder Teil eines Etiketts einer Flasche: 
+"BLOODY MARY MIX" oder vielleicht betrachten Sie es verkehrt herum und es sollte "XIW" sein. 
+Es könnte natürlich überhaupt kein Englisch sein. 
+Ohne den Zusammenhang zu kennen hat eine Folge von Buchstaben kaum eine Bedeutung.
+
+Computerspeicher speichert beliebige Bitmuster. Wie bei einer Folge von Buchstaben hängt die Bedeutung 
+einer Folge von Bits davon ab wie sie verwendet werden. Das jeweilige Schema, das für eine bestimmte Folge von Bits 
+verwendet wird, ist ein Datentyp.
+
+Ein Datentyp:
+-Ist ein Schema für die Verwendung von Bits, um Werte darzustellen.
+-Werte sind nicht nur Zahlen, sondern jede Art von Daten, die ein Computer verarbeiten kann.
+-Alle Werte in einem Computer werden dargestellt, indem der eine oder der andere Datentyp verwendet wird.
+
+Zum Beispiel: 0000000001100111
+ist ein Muster von 16 Bit, die irgendwo im Computerspeicher gefunden werden könnten. Was stellen sie dar?
+Ohne mehr darüber zu wissen, wie das oben stehende Muster verwendet wird, ist es unmöglich zu sagen was es darstellt. 
+Der Typ short ist einer der primitiven Datentypen von Java. Wenn das Muster vom Datentyp short ist, 
+dann stellt es den Wert 103 (Einhundertdrei) dar.
+
+Was stellt das folgende 16-Bit Muster dar: 0000000000000000
+Ohne mehr darüber zu wissen, wie das Muster verwendet wird, ist es unmöglich zu sagen.
