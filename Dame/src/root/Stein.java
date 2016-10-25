@@ -1,6 +1,6 @@
 package root;
 
-import gui.*;
+import gui.Feld;
 
 public abstract class Stein {
 
@@ -16,7 +16,7 @@ public abstract class Stein {
 		this.feld = feld;
 		feld.getBrett().merkeEnde(this);
 	}
-	
+
 	public boolean getSchwarz() {
 		return istSchwarz;
 	}
@@ -25,7 +25,6 @@ public abstract class Stein {
 		return feld;
 	}
 	
-	abstract public boolean istOk(Feld feld); 
-	
+	abstract public boolean istOk (Feld feld);
 	abstract public String getSymbol();
 }
